@@ -13,7 +13,8 @@
         "way/generators": "~3.0"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4"
+        "fzaninotto/faker": "~1.4",
+        "phpunit/phpunit": "~4.3"
     },
     "autoload": {
         "classmap": [

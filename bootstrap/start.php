@@ -26,7 +26,8 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('homestead'),
+    'builtin' => php_sapi_name() == 'cli-server' ? gethostname() : '',
+    'local' => array('homestead'),
 
 ));
 

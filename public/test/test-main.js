@@ -1,4 +1,13 @@
-// jscs:disable maximumLineLength
+var tests = [];
+for (var file in window.__karma__.files) {
+  if (window.__karma__.files.hasOwnProperty(file)) {
+    // Removed "Spec" naming from files
+    if (/spec\.js$/.test(file)) {
+      tests.push(file);
+    }
+  }
+}
+
 // #replace:rjsconfig
 require.config({
   paths: {
@@ -104,12 +113,9 @@ require.config({
   }
 });
 // #endreplace
-// jscs:enable maximumLineLength
 
-require([
-  'this'
-], function () {
-  'use strict';
-
-  return null;
+requirejs.config({
+  baseUrl: '/base/public/js',
+  deps: tests,
+  callback: window.__karma__.start
 });
